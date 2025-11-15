@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Career Guidance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard</h1>
+    <p>Welcome! Choose an option below:</p>
+
+    <button onclick="goToCareer()">Career Selection</button>
+    <button onclick="goToCollegeList()">College List</button>
+    <button onclick="signOutUser()">Sign Out</button>
+  </div>
+
+  <script>
+    function goToCareer() {
+      window.location.href = "career-selection.html";
+    }
+
+    function goToCollegeList() {
+      window.location.href = "college-list.html";
+    }
+
+    function signOutUser() {
+      // Just redirect to login page for now
+      alert("Signed Out!"); // optional feedback
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

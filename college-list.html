@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College List - Career Guidance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>College List</h1>
+    <p>Example colleges (placeholder)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>College Name</th>
+          <th>Location</th>
+          <th>Fees</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ABC Engineering</td>
+          <td>India</td>
+          <td>$5000</td>
+        </tr>
+        <tr>
+          <td>XYZ Management</td>
+          <td>Abroad</td>
+          <td>$12000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button onclick="goBack()">Back to Dashboard</button>
+
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = "dashboard.html";
+      console.log("Returning to Dashboard...");
+    }
+  </script>
+</body>
+</html>

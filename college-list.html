@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>College List - Career Guidance</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>College List</h1>
-    <p>Example colleges (placeholder)</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>College Name</th>
-          <th>Location</th>
-          <th>Fees</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>ABC Engineering</td>
-          <td>India</td>
-          <td>$5000</td>
-        </tr>
-        <tr>
-          <td>XYZ Management</td>
-          <td>Abroad</td>
-          <td>$12000</td>
-        </tr>
-      </tbody>
-    </table>
+  <section class="dashboard-panel">
+    <header class="nav">
+      <div class="logo">Career Guidance Portal</div>
+    </header>
 
-    <button onclick="goBack()">Back to Dashboard</button>
+    <div class="panel-content">
+      <h1>Top Colleges</h1>
+      <p>Explore detailed info about top colleges worldwide</p>
 
-  </div>
+      <div class="college-cards">
+        <div class="college-card">
+          <h2>IIT Delhi</h2>
+          <p>Premier engineering institute in India offering top-notch education and research opportunities.</p>
+          <a href="https://www.iitd.ac.in/" target="_blank">Visit Website</a>
+        </div>
+
+        <div class="college-card">
+          <h2>IIT Mumbai (BHU)</h2>
+          <p>Leading institute with excellent programs in technology, engineering, and innovation.</p>
+          <a href="https://www.iitb.ac.in/" target="_blank">Visit Website</a>
+        </div>
+
+        <div class="college-card">
+          <h2>MIT, USA</h2>
+          <p>World-renowned university for science, technology, and innovation. Strong research focus.</p>
+          <a href="http://web.mit.edu/" target="_blank">Visit Website</a>
+        </div>
+
+        <div class="college-card">
+          <h2>Boston University, USA</h2>
+          <p>Prestigious university with a wide range of programs and vibrant campus life.</p>
+          <a href="https://www.bu.edu/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <button class="back-btn" onclick="goBack()">Back to Dashboard</button>
+    </div>
+  </section>
 
   <script>
     function goBack() {
       window.location.href = "dashboard.html";
-      console.log("Returning to Dashboard...");
     }
   </script>
 </body>

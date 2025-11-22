@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - Career Guidance</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Dashboard</h1>
-    <p>Welcome! Choose an option below:</p>
 
-    <button onclick="goToCareer()">Career Selection</button>
-    <button onclick="goToCollegeList()">College List</button>
-    <button onclick="signOutUser()">Sign Out</button>
-  </div>
+  <section class="dashboard-hero">
+    <div class="overlay"></div>
+
+    <header class="nav">
+      <div class="logo">Career Guidance Portal</div>
+    </header>
+
+    <div class="hero-content dashboard-content">
+      <h1>Welcome to Your Dashboard</h1>
+      <p>Access your career path, college list, and guidance resources</p>
+
+      <div class="dashboard-buttons">
+        <button onclick="goToCareer()">Career Selection</button>
+        <button onclick="goToCollegeList()">College List</button>
+        <button onclick="signOutUser()">Sign Out</button>
+      </div>
+    </div>
+  </section>
 
   <script>
     function goToCareer() {
@@ -26,8 +37,7 @@
     }
 
     function signOutUser() {
-      // Just redirect to login page for now
-      alert("Signed Out!"); // optional feedback
+      alert("Signed Out!");
       window.location.href = "index.html";
     }
   </script>

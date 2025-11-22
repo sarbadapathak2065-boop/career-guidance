@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Career Selection</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Career Selection</h1>
-    <p>Choose your field of interest:</p>
 
-    <button onclick="alert('Engineering Selected')">Engineering</button>
-    <button onclick="alert('Management Selected')">Management</button>
+  <section class="hero career-hero">
+    <div class="overlay"></div>
 
-    <br><br>
-    <button onclick="goBack()">Back to Dashboard</button>
-  </div>
+    <header class="nav">
+      <div class="logo">Career Guidance Portal</div>
+    </header>
+
+    <div class="hero-content">
+      <h1>Choose Your Career Path</h1>
+      <p>Select a field that matches your passion and skills</p>
+
+      <div class="career-buttons">
+        <button onclick="selectCareer('Engineering')">Engineering</button>
+        <button onclick="selectCareer('Management')">Management</button>
+        <button onclick="selectCareer('Medicine')">Medicine</button>
+        <button onclick="selectCareer('Arts & Design')">Arts & Design</button>
+      </div>
+
+      <button class="back-btn" onclick="goBack()">Back to Dashboard</button>
+    </div>
+  </section>
 
   <script>
+    function selectCareer(career) {
+      alert(career + " selected!");
+     
+    }
+
     function goBack() {
       window.location.href = "dashboard.html";
     }

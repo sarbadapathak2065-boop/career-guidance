@@ -1,17 +1,22 @@
-# Project1 for unified mentor advance projects.
+# Career Guidance Portal for unified mentor internship 
 
-This is my Project1 website using Firebase.
+This is a Career Guidance website to help students explore careers, colleges, and get guidance. The project is built with HTML, CSS, and JavaScript using localStorage for authentication.
 
 ## Files
 
-- `index.html` — main HTML file  
-- `style.css` — styles  
-- `auth.js` — authentication logic  
-- `firebaseConfig.js` — Firebase config  
-- `firestore.js` — Firestore setup  
+- `index.html` — homepage with login/signup  
+- `style.css` — styling for homepage and other pages  
+- `app.js` — authentication logic using localStorage  
+- `dashboard.html` — main dashboard after login  
+- `career-selection.html` — page to choose career fields  
+- `college-list.html` — page listing colleges with descriptions and links  
+- `image.png` — homepage background image  
+- `student.png` — second page background image  
 
-## Setup
+## MY websites Features
 
-1. Clone the repo  
-2. Run `npm install`  
-3. Open `index.html` in a browser  
+- Responsive, modern UI like professional university websites  
+- Login and Sign Up with **localStorage authentication**  
+- Auto-clear inputs after signing in  
+- Dashboard and career selection pages  
+- College list with real college names, descriptions, and links  

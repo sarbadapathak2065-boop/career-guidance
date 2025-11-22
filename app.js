@@ -1,69 +1,71 @@
-// Firebase imports (keep at top)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+// Simple localStorage-based authentication
+document.addEventListener("DOMContentLoaded", () => {
+    const signupBtn = document.getElementById("signup");
+    const loginBtn = document.getElementById("login");
 
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCgKhPGFs2GX4CbFcaRU3rbNN2XYKRvAv0",
-  authDomain: "career-guidance-app-d2978.firebaseapp.com",
-  projectId: "career-guidance-app-d2978",
-  storageBucket: "career-guidance-app-d2978.firebasestorage.app",
-  messagingSenderId: "877437959894",
-  appId: "1:877437959894:web:1551cbd6b7d849413d1377"
-};
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const message = document.getElementById("message");
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    // SIGNUP
+    signupBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-// Wait for DOM to load
-window.addEventListener('DOMContentLoaded', () => {
-  const emailInput = document.getElementById('email');
-  const passwordInput = document.getElementById('password');
-  const signupBtn = document.getElementById('signup');
-  const loginBtn = document.getElementById('login');
-  const messageDiv = document.getElementById('message');
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
-  signupBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        messageDiv.textContent = "Sign Up Successful!";
-        console.log(`User signed up: ${email}`);
-        setTimeout(() => { window.location.href = "dashboard.html"; }, 300);
-      })
-      .catch((error) => {
-        if (error.code === 'auth/email-already-in-use') {
-          messageDiv.textContent = "This email is already registered. Please log in.";
-        } else if (error.code === 'auth/invalid-email') {
-          messageDiv.textContent = "Invalid email address.";
-        } else if (error.code === 'auth/weak-password') {
-          messageDiv.textContent = "Password should be at least 6 characters.";
-        } else {
-          messageDiv.textContent = "Error: " + error.message;
+        if (!email || !password) {
+            message.textContent = "Please fill all fields.";
+            message.style.color = "red";
+            return;
         }
-        console.log(`Sign Up Error for ${email}: ${error.message}`);
-      });
-  });
 
-  loginBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+        // Check if user already exists
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+        if (users[email]) {
+            message.textContent = "Email already registered. Please login.";
+            message.style.color = "red";
+            return;
+        }
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        messageDiv.textContent = "Login Successful!";
-        console.log(`User logged in: ${email}`);
-        setTimeout(() => { window.location.href = "dashboard.html"; }, 300);
-      })
-      .catch((error) => {
-        messageDiv.textContent = "Error: " + error.message;
-        console.log(`Login Error for ${email}: ${error.message}`);
-      });
-  });
+        // Save user
+        users[email] = { password };
+        localStorage.setItem("users", JSON.stringify(users));
+
+        // Store current user
+        localStorage.setItem("currentUser", JSON.stringify({ email }));
+
+        // Clear inputs
+        emailInput.value = "";
+        passwordInput.value = "";
+
+        // Redirect silently
+        window.location.href = "dashboard.html";
+    });
+
+    // LOGIN
+    loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+
+        if (!users[email] || users[email].password !== password) {
+            message.textContent = "Invalid email or password.";
+            message.style.color = "red";
+            return;
+        }
+
+        // Store current user
+        localStorage.setItem("currentUser", JSON.stringify({ email }));
+
+        // Clear inputs
+        emailInput.value = "";
+        passwordInput.value = "";
+
+        // Redirect silently
+        window.location.href = "dashboard.html";
+    });
 });
-
